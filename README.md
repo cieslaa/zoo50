@@ -21,8 +21,8 @@ TODO
 
 ## Tech Stack
 
-* **Backend**: [Python 3.10](https://www.python.org/) & [`Flask`](https://flask.palletsprojects.com/en/stable/)
-* **Frontend**: `HTML` & [`Tailwind CSS`](https://tailwindcss.com/)
+* **Backend**: [`Python 3.10`](https://www.python.org/) & [`Flask`](https://flask.palletsprojects.com/en/stable/)
+* **Frontend**: [`Tailwind CSS`](https://tailwindcss.com/)
 * **ML**: Hugging Face [`transformers`](https://huggingface.co/docs/transformers/installation) library (with PyTorch)
 * **Model**: [`google/vit-base-patch16-224`](https://huggingface.co/google/vit-base-patch16-224) (Vision Transformer)
 * **Image Processing**: [`Pillow (PIL)`](https://pillow.readthedocs.io/en/stable/)
