@@ -21,7 +21,7 @@ TODO
 
 ## Tech Stack
 
-* **Backend**: [`Python 3.10`](https://www.python.org/) & [`Flask`](https://flask.palletsprojects.com/en/stable/)
+* **Backend**: [`Python 3.13`](https://www.python.org/) & [`Flask`](https://flask.palletsprojects.com/en/stable/)
 * **Frontend**: [`Tailwind CSS`](https://tailwindcss.com/)
 * **ML**: Hugging Face [`transformers`](https://huggingface.co/docs/transformers/installation) library (with PyTorch)
 * **Model**: [`google/vit-base-patch16-224`](https://huggingface.co/google/vit-base-patch16-224) (Vision Transformer)
@@ -35,8 +35,8 @@ Follow instructions below if you want to get a copy of this project running on y
 
 ### 1. Prerequisites
 
-* [Python 3.8+](https://www.python.org/downloads/)
-* [Git](https://git-scm.com/install/)
+* [`Python 3.8+`](https://www.python.org/downloads/)
+* [`Git`](https://git-scm.com/install/)
 * `venv` module
 
 ### 2. Installation
