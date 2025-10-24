@@ -1,4 +1,4 @@
 Flask
-PIL
+Pillow
 transformers
-warnings
+torch

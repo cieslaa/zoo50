@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
 from PIL import Image
-from model import classify_image 
+from model.model import classify_image 
 import os
 
 # Configure app
