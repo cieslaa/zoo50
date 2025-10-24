@@ -6,9 +6,19 @@
   <meta name="color-scheme" content="light dark" />
   <title>zoo50</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Rubik -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Pico CSS -->
-  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
   
   </head>
 <body>
@@ -29,7 +39,7 @@
       
       <header>
         <h1 style="text-align: center;">zoo50</h1>
-        <p style="text-align: center;">Lorem ipsum doloret sit amet</p>
+        <p style="text-align: center;">Upload an image of an animal and the app will identify its species!</p>
       </header>
 
       <form action="/predict" method="post" enctype="multipart/form-data">
@@ -43,32 +53,36 @@
       </form>
     </article>
 
-    {% if results and results|length > 0 %}
-      <article>
-        <header>
-          <h2>Results:</h2>
-        </header>
+    {% if results is not none %}
 
-        {% for result in results %}
-          <h4>{{ result.name }}: {{ result.score }}%</h4>
-          
-          {% if loop.first %}
-            <a href="https://en.wikipedia.org/wiki/{{ result.name }}" target="_blank" role="button" class="secondary">
-              Read more about "{{ result.name }}"
-            </a>
-          {% endif %}
-        {% endfor %}
+      {% if results|length > 0 %}
+        <article>
+          <header>
+            <h2>Results:</h2>
+          </header>
 
-      </article>
+          {% for result in results %}
+            <h4>{{ result.name }}: {{ result.score }}%</h4>
+            
+            {% if loop.first %}
+              <a href="https://en.wikipedia.org/wiki/{{ result.name }}" target="_blank" role="button" class="secondary">
+                Read more about "{{ result.name }}"
+              </a>
+            {% endif %}
+          {% endfor %}
+        </article>
+      
+      {% else %}
+        <article>
+          <header>
+            <h2>No results</h2>
+          </header>
+          <p>We're sorry, the model did not find any animal in this image.</p>
+        </article>
+      {% endif %}
 
-    {% elif results is defined and results|length == 0 %}
-      <article>
-        <header>
-          <h2>No results</h2>
-        </header>
-        <p>We're sorry, the model did not find any animal in this image.</p>
-      </article>
     {% endif %}
+
     </main>
 </body>
 </html>

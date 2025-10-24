@@ -35,8 +35,8 @@ Follow instructions below if you want to get a copy of this project running on y
 
 ### 1. Prerequisites
 
-* [`Python 3.8+`](https://www.python.org/downloads/)
-* [`Git`](https://git-scm.com/install/)
+* `Python 3.8+`
+* `Git`
 * `venv` module
 
 ### 2. Installation

@@ -9,8 +9,8 @@ def imagenet_animal_labels():
     ...
 
 
-def classify_image():
-    
+def classify_image(image_object: Image.Image) -> list:
+
     time.sleep(1) 
     
     fake_predictions = [
