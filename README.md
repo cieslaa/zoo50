@@ -22,7 +22,7 @@ TODO
 ## Tech Stack
 
 * **Backend**: [`Python 3.13`](https://www.python.org/) & [`Flask`](https://flask.palletsprojects.com/en/stable/)
-* **Frontend**: [`Tailwind CSS`](https://tailwindcss.com/)
+* **Frontend**: [`Pico CSS`](https://picocss.com/)
 * **ML**: Hugging Face [`transformers`](https://huggingface.co/docs/transformers/installation) library (with PyTorch)
 * **Model**: [`google/vit-base-patch16-224`](https://huggingface.co/google/vit-base-patch16-224) (Vision Transformer)
 * **Image Processing**: [`Pillow (PIL)`](https://pillow.readthedocs.io/en/stable/)

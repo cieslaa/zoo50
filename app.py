@@ -1,44 +1,44 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, flash, redirect, url_for
 from PIL import Image
-from model import classify_image
+from model import classify_image 
+import os
 
-# Configure application
+# Configure app
 app = Flask(__name__)
-
-# Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# Main website
-@app.route("/", methods=["GET"])
+# Configure Flash
+app.config["SECRET_KEY"] = os.urandom(24) 
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    # If form sent ("POST")
+    if request.method == "POST":
+        
+        if "animal_image" not in request.files:
+            flash("No file found.", "error")
+            return redirect(url_for("index")) 
 
-# Classify the animal based on the image
-@app.route("/predict", methods=["POST"])
-def predict():
-    # No file sent in the form
-    if "animal_image" not in request.files:
-        return "No file found", 400
-    
-    file = request.files["animal_image"]
+        file = request.files["animal_image"]
 
-    # No file selected in the form
-    if file.filename == '':
-        return "No selected file", 400
-    
-    if file:
-        try:
-            # Use PIL module
-            img = Image.open(file.stream)
+        if file.filename == '':
+            flash("No file selected.", "error")
+            return redirect(url_for("index"))
 
-            # Use the classify_image() function from model.py
-            predictions = classify_image(img)
+        if file:
+            try:
+                img = Image.open(file.stream).convert("RGB")
 
-            return render_template('index.html', results=predictions)
+                predictions = classify_image(img)
 
-        except Exception as e:
-            print(f"Error processing image: {e}")
-            return "Error processing image", 500
+                return render_template('index.html', results=predictions)
+
+            except Exception as e:
+                print(f"Error processing image: {e}")
+                flash(f"Error processing image: ({e})", "error")
+                return redirect(url_for("index"))
+
+    return render_template("index.html", results=None)
 
 
 if __name__ == "__main__":
